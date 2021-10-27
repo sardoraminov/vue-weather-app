@@ -19,10 +19,10 @@
         <h1 class="city">{{ weather.name }} {{ weather.sys.country }}</h1>
         <h5 class="today">{{dateBuilder()}}</h5>
         <div class="weathers-temp">
-          <h1 class="temp">{{ Math.round(weather.main.temp) }}°C</h1>
+          <h1 class="temp">{{ Math.round(weather.main.feels_like) }}°C</h1>
           <p class="status">{{ weather.weather[0].main }}</p>
         </div>
-      </div>
+      </div>``
 
       <div class="weather-wrap" v-else>
         <h1>Please, enter valid city</h1>
