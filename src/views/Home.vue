@@ -15,7 +15,7 @@
         autocomplete="off"
       />
       <button @click="fetchWeather" type="button">Go</button>
-      <div class="weather-wrap" v-if="typeof weather.main != 'undefined'">
+      <div  v-if="typeof weather.main != 'undefined'" class="weather-wrap">
         <h1 class="city">{{ weather.name }} {{ weather.sys.country }}</h1>
         <h5 class="today">{{dateBuilder()}}</h5>
         <div class="weathers-temp">
@@ -24,7 +24,7 @@
         </div>
       </div>``
 
-      <div class="weather-wrap" v-else>
+      <div  v-else class="weather-wrap">
         <h1>Please, enter valid city</h1>
       </div>
 
