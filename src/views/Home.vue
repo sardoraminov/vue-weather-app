@@ -17,7 +17,7 @@
       <button @click="fetchWeather" type="button">Go</button>
       <div class="weather-wrap" v-if="typeof weather.main != 'undefined'">
         <h1 class="city">{{ weather.name }} {{ weather.sys.country }}</h1>
-        <h5 class="today">Wednesday 27 October 2021</h5>
+        <h5 class="today">{{dateBuilder()}}</h5>
         <div class="weathers-temp">
           <h1 class="temp">{{ Math.round(weather.main.temp) }}°C</h1>
           <p class="status">{{ weather.weather[0].main }}</p>
@@ -63,6 +63,38 @@ export default {
 
     setResults(result) {
       this.weather = result;
+    },
+
+    dateBuilder() {
+      let d = new Date();
+      let months = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+      ];
+      let days = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ];
+      let day = days[d.getDay()];
+      let date = d.getDate();
+      let month = months[d.getMonth()];
+      let year = d.getFullYear();
+      return `${day} ${date} ${month} ${year}`;
     },
   },
 };
@@ -135,7 +167,7 @@ export default {
 }
 
 .weathers button:hover {
-    border-color: #fff; 
+  border-color: #fff;
 }
 
 .weathers input:focus {
