@@ -9,12 +9,12 @@
     </div>
     <div class="weathers">
       <input
-        @keypress="fetchWeather"
         type="text"
         v-model="query"
         placeholder="Enter your city..."
         autocomplete="off"
       />
+      <button @click="fetchWeather" type="button">Go</button>
       <div class="weather-wrap" v-if="typeof weather.main != 'undefined'">
         <h1 class="city">{{ weather.name }} {{ weather.sys.country }}</h1>
         <h5 class="today">Wednesday 27 October 2021</h5>
@@ -50,17 +50,15 @@ export default {
   },
   methods: {
     fetchWeather(e) {
-      if (e.key === "Enter") {
-        fetch(
-          `${this.base_url}weather?q=${this.query}&appid=${this.api_key}&units=metric`
-        )
-          .then((res) => {
-            return res.json();
-          })
-          .then((data) => {
-            this.setResults(data);
-          });
-      }
+      fetch(
+        `${this.base_url}weather?q=${this.query}&appid=${this.api_key}&units=metric`
+      )
+        .then((res) => {
+          return res.json();
+        })
+        .then((data) => {
+          this.setResults(data);
+        });
     },
 
     setResults(result) {
@@ -120,6 +118,24 @@ export default {
   border: 2px solid rgba(255, 255, 255, 0.226);
   border-radius: 5px;
   transition: all 0.4s ease;
+}
+
+.weathers button {
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  border: none;
+  outline: none;
+  padding: 10px 15px;
+  color: #fff;
+  font-family: "Quicksand", sans-serif;
+  border: 2px solid rgba(255, 255, 255, 0.226);
+  border-radius: 5px;
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+
+.weathers button:hover {
+    border-color: #fff; 
 }
 
 .weathers input:focus {
