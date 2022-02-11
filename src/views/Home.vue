@@ -29,7 +29,7 @@
       </div>
 
       <footer>
-        Developed by<a href="https://instagram.com/s_aminoff">SARDOR</a>
+        Developed by<a href="https://instagram.com/dasturchioka">DASTURCHIOKA</a>
       </footer>
     </div>
   </div>
